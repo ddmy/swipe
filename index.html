@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+	<title>Document</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+			box-sizing:border-box;
+		}
+		html,body{
+			width: 100%;
+			height: 100%;
+			overflow:hidden;
+		}
+		ul{
+			list-style:none;
+			background-color: #eee;
+		}
+		.box{
+			width: 200px;
+			height: 100%;
+			overflow: hidden;
+		}
+		ul li{
+			width: 100%;
+			height: 40px;
+			line-height: 40px;
+			text-align: center;
+			border: 1px solid #369;
+			border-top: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<ul>
+			<li>12345</li>
+			<li>12345</li>
+			<li>12345</li>
+			<li>12345</li>
+			<li>12345</li>
+			<li>12345</li>
+			<li>12345</li>
+			<li>12345</li>
+			<li>12345</li>
+			<li>12345</li>
+			<li>12345</li>
+			<li>12345</li>
+			<li>12345</li>
+			<li>12345</li>
+			<li>12345</li>
+			<li>12345</li>
+			<li>12345</li>
+			<li>12345</li>
+			<li>12345</li>
+			<li>12345</li>
+			<li>12345</li>
+			<li>12345</li>
+			<li>12345</li>
+		</ul>
+	</div>
+
+	<script>
+		
+		window.onload = function(){
+			var box = document.querySelector('.box');
+			var ul = box.querySelector('ul');
+			mrChenSwipe({
+				parent : box,
+				child : ul,
+				type : 'vertical',
+				parentN : '100',
+				childN : '30'
+			})
+		}
+
+		function mrChenSwipe(obj){
+			var parent = obj.parent,
+				child = obj.child,
+				type = obj.type;
+
+
+
+			//设置定位
+		    var setTranslate = function(elm,direction,num){
+
+		    	if(direction == 'y'){
+
+	        		elm.style.webkitTransform = 'translateY('+num+'px)';/*兼容*/
+
+	       		 	elm.style.transform = 'translateY('+num+'px)';
+
+		    	}
+
+		    	if(direction == 'x'){
+
+	        		elm.style.webkitTransform = 'translateX('+num+'px)';/*兼容*/
+
+	       		 	elm.style.transform = 'translateX('+num+'px)';
+
+		    	}
+
+    		};
+
+
+			
+			//判断如果为上下滑动，获取宽高
+			if(type == 'vertical'){
+
+				parentN = obj.parentN || 200;
+
+				childN = obj.childN || 40;
+
+				parent.style.width = parentN + 'px';
+
+				setTranslate(child,'y',0);
+
+				goV();
+
+			}
+
+			function goV(){
+
+				//获取所有li
+
+				var lis = child.querySelectorAll('li'),
+					lisLength = lis.length,
+					i = 0;
+
+				for(i; i < lisLength; i += 1){
+
+					//lis[i].style.width = '100%';
+
+				}
+			}
+
+		}
+	</script>
+</body>
+</html>

@@ -257,6 +257,8 @@
 
 				}
 
+				e.preventDefault();
+
 			})
 
 			//滑动结束
